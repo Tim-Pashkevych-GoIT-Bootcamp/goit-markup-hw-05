@@ -86,14 +86,15 @@ input {
 }
 .form-textarea,
 .form-input {
-  outline: none;
+  outline: transparent;
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-input:focus,
 .form-textarea:focus {
-  border: 1px solid var(--btn-accent-color);
+  border-color: var(--btn-accent-color);
 }
 .btn {
   color: var(--primary-bg-color);
@@ -418,6 +419,7 @@ input {
   color: var(--secondary-text-color);
 }
 .modal-content-form .form-label {
+  display: block;
   color: var(--icon-default-color);
   margin-bottom: 4px;
 
@@ -426,7 +428,7 @@ input {
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
 }
 .modal-content-form .form-input {
@@ -437,8 +439,13 @@ input {
 .modal-content-form .form-box:not(:last-child) {
   margin-bottom: 8px;
 }
-
-.form-field .form-textarea {
+.modal-content-form .form-box.form-box-comment {
+  margin-bottom: 16px;
+}
+.modal-content-form .form-box.form-box-checkbox {
+  margin-bottom: 24px;
+}
+.form-box-comment .form-textarea {
   width: 100%;
   resize: none;
   padding-top: 8px;
@@ -471,18 +478,20 @@ input {
 }
 
 .privacy-policy-field .custom-checkbox {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  color: rgba(46, 47, 66, 0.4);
+
   width: 16px;
   height: 16px;
 
+  color: rgba(46, 47, 66, 0.4);
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
   fill: transparent;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .privacy-policy-field .custom-checkbox-icon {
@@ -493,12 +502,13 @@ input {
   border: none;
   border-radius: 2px;
   background-color: var(--btn-active-color);
+  fill: var(--secondary-bg-color);
 }
 .privacy-policy-input:checked + .privacy-policy-field .custom-checkbox-icon {
   fill: var(--primary-bg-color);
 }
 .privacy-policy-field {
-  display: flex;
+  display: block;
   align-items: baseline;
   gap: 8px;
 
@@ -513,12 +523,13 @@ input {
   letter-spacing: 0.04em;
 }
 .privacy-policy-field .privacy-policy-link {
+  color: var(--btn-accent-color);
   line-height: 16px;
   letter-spacing: 0.04em;
   text-decoration-line: underline;
 }
 .btn-send {
-  width: 169px;
+  min-width: 169px;
   height: 56px;
 
   margin: 0 auto;
@@ -762,18 +773,19 @@ input {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   background: var(--secondary-text-color);
 }
-
+.footer-block-subscribe .email-field::placeholder {
+  color: var(--primary-bg-color);
+}
 .footer-block-subscribe .btn-subscribe {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
 
-  padding: 8px 24px;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 165px;
 }
 .btn-subscribe .send-email-icon {
   fill: var(--primary-bg-color);
+  margin-left: 16px;
 }
 
 /* ===================== 
